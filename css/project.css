@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.main-section {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.main-section h1 {
+    color: #fff;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 50px;
+}
+
+.main-section span {
+    color: #00abf0;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%; /* Adjusted for mobile */
+    max-width: 1170px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container .content {
+    backdrop-filter: blur(40px);
+    flex-basis: 23%;
+    margin: 10px 0px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px 3px #000;
+}
+
+.container .content img {
+    width: 100%;
+    height: auto;
+}
+
+.container .content p {
+    line-height: 1.5; /* Better readability */
+    padding: 10px;
+    font-size: 16px;
+}
+
+.container .content h3 {
+    font-size: 20px;
+    padding: 10px 0px;
+}
+
+.btn {
+    background-color: #1e254d;
+    padding: 10px 25px;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin: 10px 0px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.content:hover {
+    background-color: #1e254d;
+    box-shadow: none;
+}
+
+.content:hover h3, .content:hover p {
+    color: #ebeef0;
+}
+
+.content:hover button {
+    background-color: #ebeef0;
+    color: #1e254d;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container .content {
+        flex-basis: 45%; /* Wider for medium screens */
+    }
+
+    .main-section h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .content {
+        flex-basis: 48%; /* For tablets */
+    }
+
+    .main-section h1 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
+        gap: 20px; /* Add space between items */
+    }
+
+    .container .content {
+        flex-basis: 100%; /* Full width for mobile */
+        max-width: 90%; /* Slight padding for better appearance */
+    }
+
+    .main-section h1 {
+        font-size: 28px; /* Smaller heading */
+    }
+
+    .container .content img {
+        height: 140px; /* Adjusted image height */
+    }
+
+    .container .content p {
+        font-size: 16px; /* Larger text for readability */
+    }
+
+    .btn {
+        padding: 12px 30px; /* Slightly larger button */
+    }
+}
