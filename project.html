@@ -103,6 +103,12 @@
     
             </div>
         </div>
+
+        <div class="pagination">
+          <button id="prevBtn" class="btn">Previous</button>
+          <span id="pageInfo" class="page-info"></span>
+          <button id="nextBtn" class="btn">Next</button>
+        </div>
     </section>
 
 
@@ -188,6 +194,47 @@
       </div>
     </footer>
 
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const projectsPerPage = 4;
+        const projects = document.querySelectorAll(".content");
+        const totalPages = Math.ceil(projects.length / projectsPerPage);
+        let currentPage = 1;
+
+        function showPage(page) {
+          projects.forEach((project, index) => {
+            project.style.display =
+              index >= (page - 1) * projectsPerPage && index < page * projectsPerPage
+                ? "block"
+                : "none";
+          });
+
+          document.getElementById(
+            "pageInfo"
+          ).textContent = `Page ${page} of ${totalPages}`;
+          document.getElementById("prevBtn").disabled = page === 1;
+          document.getElementById("nextBtn").disabled = page === totalPages;
+        }
+
+        document.getElementById("prevBtn").addEventListener("click", function () {
+          if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+          }
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+          }
+        });
+
+        showPage(currentPage);
+      });
+
+    </script>
     <script src="/js/script.js"></script>
   </body>
 </html>
